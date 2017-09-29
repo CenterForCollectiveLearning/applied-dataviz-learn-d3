@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>MAS.S70 | D3 workshop</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 3%;
+        font-family: 'PT Sans', sans-serif;
+      }
+      .page {
+        margin: 0 auto;
+        max-width: 800px;
+        width: 90%;
+      }
+      h1 {
+        font-weight: normal;
+        text-rendering: optimizeLegibility;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <h1>Drawing Circles | Variables, Selections</h1>
+      <br />
+      <h2> Static SVG </h2>
+      <p>
+        We render some plain SVG circles
+      </p>
+      <svg id="svg1" width="720" height="120">
+        <circle cx="40" cy="60" r="10"></circle>
+        <circle cx="80" cy="60" r="10"></circle>
+        <circle cx="120" cy="60" r="10"></circle>
+      </svg>
+      <br />
+      <h2> SVG manipulated by D3</h2>
+      <p>
+        We use D3 to do three things to these circles
+        <ol>
+          <li>Change color to blue</li>
+          <li>Make circles bigger</li>
+          <li>Move them to not overlap</li>
+          <li>Bonus: Make the circles change colors every second</li>
+        </ol>
+      </p>
+      <svg id="svg2" width="720" height="120">
+        <circle cx="40" cy="60" r="10"></circle>
+        <circle cx="80" cy="60" r="10"></circle>
+        <circle cx="120" cy="60" r="10"></circle>
+      </svg>
+      <h2> Exercise: repeat the previous section, but using rectangles!</h2>
+      <svg id="svg3" width="720" height="120">
+      </svg>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script>
+      var circle = d3.select("#svg2").selectAll("circle");
+      // 1
+      circle.style("fill", "steelblue");
+      // 2
+      circle.attr("r", 30);
+      // 3
+      circle.attr("cx", function(d, i) {
+        return 2*(i + 1)*40;
+      })
+      // 4 (hint - use setInterval)
+
+      // Your code for doing the same thing with rectangles
+    </script>
+  </body>
+</html>

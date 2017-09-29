@@ -47,8 +47,7 @@
       <p>
         Can we use what we've learned to generate random data for our bar chart?
       </p>
-      <svg id="svg1">
-      </svg>
+      <svg id="svg1"></svg>
     </div>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script>
@@ -72,7 +71,7 @@
 
       var data = [];
       // Generate random data and it will be plotted in our chart
-      for (var i=0; i <= 10; i=i+1) {
+      for (var i=0; i < 10; i=i+1) {
         data.push(Math.floor(Math.random()*100) + 3)
       }
 

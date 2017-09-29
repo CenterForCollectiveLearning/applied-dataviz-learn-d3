@@ -82,55 +82,16 @@
     </div>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script>
-      // Simple chart
+      // Common Variables
       var data = [4, 8, 15, 16, 23, 42];
 
       var width = 420;
       var barHeight = 20;
 
-      var chart2 = d3.select("#svg2")
-          .attr("width", width)
-          .attr("height", barHeight * data.length)
-          .attr("class", "chart");
+      // Simple bar chart
 
-      var bar2 = chart2.selectAll("g")
-        .data(data)
-        .enter().append("g")
-        .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+      // Chart with smart axis
 
-      bar2.append("rect")
-        .attr("width", function(d,i) { return d*10})
-        .attr("height", barHeight - 1);
-
-      bar2.append("text")
-          .attr("x", function(d) { return d*10 - 3; })
-          .attr("y", barHeight / 2)
-          .attr("dy", ".35em")
-          .text(function(d) { return d; });
-
-      var x3 = d3.scale.linear()
-          .domain([0, d3.max(data)])
-          .range([0, width]);
-
-      var chart3 = d3.select("#svg3")
-          .attr("width", width)
-          .attr("height", barHeight * data.length)
-          .attr("class", "chart");
-
-      var bar3 = chart3.selectAll("g")
-          .data(data)
-        .enter().append("g")
-          .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
-
-      bar3.append("rect")
-          .attr("width", function(d, i) {return x3(d)})
-          .attr("height", barHeight - 1);
-
-      bar3.append("text")
-          .attr("x", function(d) { return x3(d) - 3; })
-          .attr("y", barHeight / 2)
-          .attr("dy", ".35em")
-          .text(function(d) { return d; });
     </script>
   </body>
 </html>
